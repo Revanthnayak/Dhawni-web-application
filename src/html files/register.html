@@ -4,9 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css files/register.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <section class="container">
+        <header>Registration Form</header>
+        <form action="#" class="form">
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter full name" required/>
+            </div>
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="TEXT" placeholder="Enter Phone Number" required/>
+            </div>
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" placeholder="Enter Password" required/>
+            </div>
+            <div class="input-box">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm Password" required/>
+            </div>
+            <div class="input-box">
+                <label>Age</label>
+                <input type="number" placeholder="Enter Age" required/>
+            </div>
+            <div class="input-box">
+                <label>Degrees(Separated by Comma)</label>
+                <input type="text" placeholder="Enter full name" required/>
+            </div>
+            <div class="input-box">
+                <label>State Medical Council</label>
+                <input type="text" placeholder="Karnata State Council" required/>
+            </div>
+            <div class="input-box">
+                <label>Year of Registeration</label>
+                <input type="number" placeholder="Enter Year" required/>
+            </div>
+
+
+            <div class="gender-box">
+                <h3>Gender</h3>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input type="radio" id="check-male" name="gender" checked />
+                        <label for="check-male">Male</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-female" name="gender" checked />
+                        <label for="check-female">Female</label>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="input-box">
+                <label>Medical Speciality</label>
+                <input type="text" placeholder="" required/>
+            </div>
+            <div class="input-box">
+                <label>Experience (in years)</label>
+                <input type="number" placeholder="Enter Year" required/>
+            </div>
+            <div class="input-box">
+                <label>Start-Time</label>
+                <input type="TIME" placeholder="8:00 AM" required/>
+            </div>
+            <div class="input-box">
+                <label>End-Time</label>
+                <input type="time" placeholder="5:00 PM" required/>
+            </div>
+
+            <button onclick="window.location='login.html';">
+                Submit
+            </button>
+
+        </form>
+    </section>
 </body>
 </html>
