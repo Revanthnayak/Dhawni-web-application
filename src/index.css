@@ -1,0 +1,94 @@
+
+body {
+  font-family: "Arial";
+}
+
+#BG1 {
+  top: 100px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+    position: absolute;
+    display:block;
+    margin: 0px;
+    padding: 0px;
+
+}
+.topnav {
+  
+  width: 1408px;
+  height: 100px;
+  background: rgba(255,255,255,1);
+}
+
+.topnav H1 {
+  top: 33px;
+  left: 105px;
+  width: 499px;
+  height: 100px;
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: left;
+  color: #006DAB;
+
+}
+
+#TITLE {
+  top: 303px;
+  left: 376px;
+  width: 870px;
+  height: 163px;
+  overflow: hidden;
+  font-family: Inter;
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  position: absolute;
+}
+#TAGLINE {
+  top: 380px;
+  left: 491px;
+  width: 636px;
+  height: 91px;
+  overflow: hidden;
+  font-family: Inter;
+  font-size: 32px;
+  text-align: center;
+  color: #FFFFFF;
+  position:absolute;
+}
+.Button a {
+  top: 477px;
+  left: 434px;
+  width: 366px;
+  height: 84px;
+  border-radius: 61px;
+  background: rgba(205.06,125.71,52.46,1);
+  position: absolute;
+  font-family: Inter;
+  font-size: 32px;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+  
+}
+.Button2 a {
+  top: 477px;
+  left: 836px;
+  width: 366px;
+  height: 84px;
+  border-radius: 61px;
+  background: rgba(205.06,125.71,52.46,1);
+  position: absolute;
+  font-family: Inter;
+  font-size: 32px;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+  
+}
