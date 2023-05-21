@@ -6,42 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css files/register.css">
     <title>Document</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
 </head>
 <body>
     <section class="container">
         <header>Registration Form</header>
-        <form action="#" class="form">
+        <form action="#" class="form" id="registrationForm">
             <div class="input-box">
                 <label>Full Name</label>
-                <input type="text" placeholder="Enter full name" required/>
+                <input type="text" placeholder="Enter full name" id="name" name="name" required/>
             </div>
             <div class="input-box">
                 <label>Phone Number</label>
-                <input type="TEXT" placeholder="Enter Phone Number" required/>
+                <input type="TEXT" placeholder="Enter Phone Number" id="phone"  name="phone" required/>
             </div>
             <div class="input-box">
                 <label>Password</label>
-                <input type="password" placeholder="Enter Password" required/>
+                <input type="password" placeholder="Enter Password" id="password" name="password" required/>
             </div>
             <div class="input-box">
                 <label>Confirm Password</label>
-                <input type="password" placeholder="Confirm Password" required/>
+                <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword"required/>
             </div>
             <div class="input-box">
                 <label>Age</label>
-                <input type="number" placeholder="Enter Age" required/>
+                <input type="number" placeholder="Enter Age" id="age" class="form" name="age"  name="age"required/>
             </div>
             <div class="input-box">
                 <label>Degrees(Separated by Comma)</label>
-                <input type="text" placeholder="Enter full name" required/>
+                <input type="text" placeholder="Enter full name" id="degrees"  name="degrees"required/>
             </div>
             <div class="input-box">
                 <label>State Medical Council</label>
-                <input type="text" placeholder="Karnata State Council" required/>
+                <input type="text" placeholder="Karnata State Council" id="council" name="Council"required/>
             </div>
             <div class="input-box">
                 <label>Year of Registeration</label>
-                <input type="number" placeholder="Enter Year" required/>
+                <input type="number" placeholder="Enter Year" id="registrationyear"  name="registrationyear"required/>
             </div>
 
 
@@ -49,11 +53,11 @@
                 <h3>Gender</h3>
                 <div class="gender-option">
                     <div class="gender">
-                        <input type="radio" id="check-male" name="gender" checked />
+                        <input type="radio" id="check-male" name="gender" id="Male" name="male" checked />
                         <label for="check-male">Male</label>
                     </div>
                     <div class="gender">
-                        <input type="radio" id="check-female" name="gender" checked />
+                        <input type="radio" id="check-female" name="gender" id="Female" name="female"checked />
                         <label for="check-female">Female</label>
                     </div>
                 </div>
@@ -62,26 +66,89 @@
 
             <div class="input-box">
                 <label>Medical Speciality</label>
-                <input type="text" placeholder="" required/>
+                <input type="text" placeholder=""  id="speciality" name="speciality" required/>
             </div>
             <div class="input-box">
                 <label>Experience (in years)</label>
-                <input type="number" placeholder="Enter Year" required/>
+                <input type="number" placeholder="Enter Year" id="experience" name="experience" required/>
             </div>
             <div class="input-box">
                 <label>Start-Time</label>
-                <input type="TIME" placeholder="8:00 AM" required/>
+                <input type="TIME" placeholder="8:00 AM" id="starttime" name="starttime" required/>
             </div>
             <div class="input-box">
                 <label>End-Time</label>
-                <input type="time" placeholder="5:00 PM" required/>
+                <input type="time" placeholder="5:00 PM" id="lasttime" name="lasttime" required/>
             </div>
 
-            <button onclick="window.location='login.html';">
+            <button  type="submit" id="submitData" >
                 Submit
             </button>
-
-        </form>
+   
+        </form>  
     </section>
 </body>
 </html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore,setDoc,addDoc,doc,collection } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAmQakSc_4cMgr_SwMxVfQJDwan1XYI-Wg",
+      authDomain: "fir-crud-dc099.firebaseapp.com",
+      projectId: "fir-crud-dc099",
+      storageBucket: "fir-crud-dc099.appspot.com",
+      messagingSenderId: "621884155968",
+      appId: "1:621884155968:web:dc2b1c6554990a81de57a5"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // Initialize Cloud Firestore and get a reference to the service
+  const db = getFirestore(app);
+  
+  document.getElementById('registrationForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+      var name =document.getElementById('name').value;
+      var phone = document.getElementById('phone').value;
+      var password = document.getElementById('password').value;
+      var confirmpassword = document.getElementById('confirmpassword').value;
+      var age = document.getElementById('age').value;
+      var degrees = document.getElementById('degrees').value;
+      var council = document.getElementById('council').value;
+      var registrationyear= document.getElementById('registrationyear').value;
+      var speciality= document.getElementById('speciality').value;
+      var experience = document.getElementById('experience').value;
+      var starttime = document.getElementById('starttime').value;
+      var lasttime =document.getElementById('lasttime').value;
+     
+     
+      addDoc(collection(db, "users"), {
+    name: name,
+    phone:phone,
+    password:password,
+    confirmpassword:confirmpassword,
+    age:age,
+    degrees:degrees,
+    council:council,
+    registrationyear:registrationyear,
+    speciality:speciality,
+    experience:experience,
+    starttime:starttime,
+    lasttime:lasttime
+  })
+  .then(() => {
+                alert('User added successfully!');
+                document.getElementById('registrationForm').reset();
+            })
+            .catch((error) => {
+                console.error('Error adding document: ', error);
+                alert('Error adding user. Please try again.');
+            });
+  });
+  </script>
