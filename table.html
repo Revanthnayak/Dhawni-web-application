@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Roll no</th>
+                <th>Section</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody id="tbody1"></tbody>
+    </table>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+    <script id="MainScript">
+         const firebaseConfig = {
+  apiKey: "AIzaSyAmQakSc_4cMgr_SwMxVfQJDwan1XYI-Wg",
+  authDomain: "fir-crud-dc099.firebaseapp.com",
+  projectId: "fir-crud-dc099",
+  storageBucket: "fir-crud-dc099.appspot.com",
+  messagingSenderId: "621884155968",
+  appId: "1:621884155968:web:dc2b1c6554990a81de57a5"
+ };
+        firebase.initializeApp(firebaseConfig);
+        let db = firebase.firestore();
+
+        function GetAllDataOnce() {
+            db.collection("Students").get().then((querySnapshot) => {
+                var students = [];
+                querySnapshot.forEach(doc => {
+                    students.push(doc.data());
+                });
+                AddAllItemsToTheTable(students);
+            });
+        }
+
+        function GetAllRealtime() {
+            db.collection("Students").onSnapshot((querySnapshot) => {
+                var students = [];
+                querySnapshot.forEach(doc => {
+                    students.push(doc.data());
+                });
+                AddAllItemsToTheTable(students);
+            });
+        }
+
+        var stdNo = 0;
+        var tbody = document.getElementById('tbody1');
+
+        function AddItemToTable(name, roll, sec, gen) {
+            var trow = document.createElement('tr');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+
+            td1.innerHTML = ++stdNo;
+            td2.innerHTML = name;
+            td3.innerHTML = roll;
+            td4.innerHTML = sec;
+            td5.innerHTML = gen;
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            trow.appendChild(td5);
+
+            tbody.appendChild(trow);
+        }
+
+        function AddAllItemsToTheTable(StudentDocsList) {
+            stdNo = 0;
+            tbody.innerHTML = "";
+            StudentDocsList.forEach(element => {
+                AddItemToTable(element.Name, element.RollNo, element.Section, element.Gender);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', GetAllDataOnce);
+    </script>
+</body>
+</html>

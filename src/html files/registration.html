@@ -7,18 +7,31 @@
     <title>Document</title>
 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ <style>
+  .custom-nav{
+    
+    background-color:#006DAB ;
 
+  }
+  .custom-background{
+  
+    background-image: url('../../bg1.jpg');
+    background-size:100% auto ;
+
+    background-repeat: no-repeat;
+  }
+ </style>
     
              
 </head>
-<body>
-    <nav>
+<body class="custom-background">
+    <nav class="custom-nav">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">job portal</a>
+          <a href="#" class="brand-logo">UTSAAH Hospitals</a>
           <ul id="nav-mobile" class="right ">
             <li><a  class="modal-trigger" href="#modal2">login</a></li>
             <li><a class="modal-trigger" href="#modal1">signup</a></li>
-            <li id="logoutli"><a onclick="location.href='./src/index.html'">logout</a></li>
+            <li id="logoutli"><a onclick="location.href='index.html'">logout</a></li>
           </ul>
         </div>
       </nav>
@@ -44,7 +57,7 @@
           <form autocomplete="off" onsubmit="login(event)">
             <input type="email" id="loginEmail" placeholder="email"/>
             <input type="password" id="loginPassword" placeholder="password"/>
-            <button class="btn waves-effect" type="submit" onclick="location.href='./src/html files/register.html'" >submit</button>
+            <a class="btn waves-effect" onclick="location.href='./home.html'">Submit</a>
           </form>
           
         </div>
@@ -53,7 +66,7 @@
 
 
     <div class="center">
-        <h1>your account details</h1>
+        <h1></h1>
         <div class="userDetails"></div>
     </div>
 

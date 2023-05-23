@@ -64,7 +64,7 @@ img {
 }
 .Button a {
   top: 477px;
-  left: 434px;
+  left: 634px;
   width: 366px;
   height: 84px;
   border-radius: 61px;
@@ -77,18 +77,4 @@ img {
   text-decoration: none;
   
 }
-.Button2 a {
-  top: 477px;
-  left: 836px;
-  width: 366px;
-  height: 84px;
-  border-radius: 61px;
-  background: rgba(205.06,125.71,52.46,1);
-  position: absolute;
-  font-family: Inter;
-  font-size: 32px;
-  text-align: center;
-  color: #000000;
-  text-decoration: none;
-  
-}
+

@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+}
+
+.topnav h1 {
+    margin: 0;
+}
+
+.topnav .navbar-links {
+    display: flex;
+}
+
+.topnav .navbar-links a {
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+}

@@ -26,7 +26,6 @@ async function getuserInfo(userID){
        userDetails.innerHTML = `
        <h3>${userInfo.name}</h3>
        <h3>${userInfo.email}</h3>
-       <h3>${userInfo.phone}</h3>
        `
    }    
     }else{
