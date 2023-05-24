@@ -43,8 +43,16 @@ async function login(e){
     M.Modal.getInstance(myModel[1]).close()
 }
 
-  function logout(){
+
+function logout(){
     firebase.auth().signOut()
     
+  
 }
+
+
+
+
+
+
 

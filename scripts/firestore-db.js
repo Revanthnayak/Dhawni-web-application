@@ -1,4 +1,5 @@
 const userDetails  = document.querySelector('.userDetails')
+const editProfile  = document.querySelector('#editProfile')
 
 function createUserCollection(user){
    firebase.firestore().collection('users')
@@ -14,6 +15,7 @@ function createUserCollection(user){
    })
 }
 
+
 async function getuserInfo(userID){
     if(userID){
       const userInfoSnap = await  firebase.firestore()
@@ -26,6 +28,7 @@ async function getuserInfo(userID){
        userDetails.innerHTML = `
        <h3>${userInfo.name}</h3>
        <h3>${userInfo.email}</h3>
+       <h3>${userInfo.phone}</h3>
        `
    }    
     }else{
@@ -36,3 +39,6 @@ async function getuserInfo(userID){
 
 
 }
+
+
+
