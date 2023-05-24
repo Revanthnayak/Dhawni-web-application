@@ -51,7 +51,7 @@
         <div class="navbar-links">
             <a class="navbar-brand" href="home.html">Home</a>
             <a class="navbar-brand" href="registration.html">Logout</a>
-            <a class="navbar-brand" href="APPOINTMENT.html">Appointment</a>
+            <a class="navbar-brand" href="appointment.html">Appointment</a>
         </div>
     </div>
     <div class="form-container">
@@ -120,7 +120,7 @@
 
         // Function to retrieve and display patient data
         function displayPatientData() {
-            db.collection("patienthistory").doc("2").get().then((doc) => {
+            db.collection("patienthistory").doc("4").get().then((doc) => {
                 if (doc.exists) {
                     const patient = doc.data();
                     const {

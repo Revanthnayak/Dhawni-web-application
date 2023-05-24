@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css files/register.css">
+    <title>Document</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+</head>
+<body>
+    <section class="container">
+        <header>Appointment Form</header>
+        <form action="#" class="form" id="appointmentForm">
+            <div class="input-box">
+                <label>Doctor Name</label>
+                <input type="text" placeholder="Enter doctor name" id="doctorName" name="doctorName" required/>
+            </div>
+            <div class="input-box">
+                <label>Patient ID</label>
+                <input type="text" placeholder="Enter patient ID" id="patientID" name="patientID" required/>
+            </div>
+            <div class="input-box">
+                <label>Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required/>
+            </div>
+            <div class="input-box">
+                <label>Start Time</label>
+                <input type="time" id="startTime" name="startTime" required/>
+            </div>
+            <div class="input-box">
+                <label>End Time</label>
+                <input type="time" id="endTime" name="endTime" required/>
+            </div>
+
+            <button type="submit" id="submitAppointment">
+                Book Appointment
+            </button>
+        </form>  
+    </section>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore, setDoc, addDoc, doc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyAmQakSc_4cMgr_SwMxVfQJDwan1XYI-Wg",
+  authDomain: "fir-crud-dc099.firebaseapp.com",
+  projectId: "fir-crud-dc099",
+  storageBucket: "fir-crud-dc099.appspot.com",
+  messagingSenderId: "621884155968",
+  appId: "1:621884155968:web:dc2b1c6554990a81de57a5"
+ };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        // Initialize Cloud Firestore and get a reference to the service
+        const db = getFirestore(app);
+      
+        document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+      
+          const doctorName = document.getElementById('doctorName').value;
+          const patientID = document.getElementById('patientID').value;
+          const appointmentDate = document.getElementById('appointmentDate').value;
+          const startTime = document.getElementById('startTime').value;
+          const endTime = document.getElementById('endTime').value;
+         
+          // Check if the time slot is already booked for the same doctor
+          const q = query(collection(db, "appointments"), where("doctorName", "==", doctorName), where("appointmentDate", "==", appointmentDate), where("startTime", "==", startTime), where("endTime", "==", endTime));
+          const querySnapshot = await getDocs(q);
+      
+          if (!querySnapshot.empty) {
+            alert('This time slot is already booked for the selected doctor. Please choose a different time slot.');
+            return;
+          }
+      
+          // Book the appointment
+          addDoc(collection(db, "appointments"), {
+            doctorName: doctorName,
+            patientID: patientID,
+            appointmentDate: appointmentDate,
+            startTime: startTime,
+            endTime: endTime
+          })
+          .then(() => {
+            alert('Appointment booked successfully!');
+            document.getElementById('appointmentForm').reset();
+          })
+          .catch((error) => {
+            console.error('Error booking appointment: ', error);
+            alert('Error booking appointment. Please try again.');
+          });
+        });
+    </script>
+</body>
+</html>

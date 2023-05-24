@@ -120,7 +120,7 @@
 
         // Function to retrieve and display patient data
         function displayPatientData() {
-            db.collection("patienthistory").doc("2").get().then((doc) => {
+            db.collection("patienthistory").doc("1").get().then((doc) => {
                 if (doc.exists) {
                     const patient = doc.data();
                     const {
