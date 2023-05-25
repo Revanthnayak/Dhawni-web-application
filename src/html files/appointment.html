@@ -53,12 +53,12 @@
     </section>
 
     <script type="module">
-        // Import the functions you need from the SDKs you need
+        
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore, setDoc, addDoc, doc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
       
-        // Your web app's Firebase configuration
+      
         const firebaseConfig = {
   apiKey: "AIzaSyAmQakSc_4cMgr_SwMxVfQJDwan1XYI-Wg",
   authDomain: "fir-crud-dc099.firebaseapp.com",
@@ -68,11 +68,11 @@
   appId: "1:621884155968:web:dc2b1c6554990a81de57a5"
  };
       
-        // Initialize Firebase
+       
         const app = initializeApp(firebaseConfig);
-        // Initialize Cloud Firestore and get a reference to the service
+        
         const db = getFirestore(app);
-        // Initialize Firebase Storage and get a reference to the service
+        
         const storage = getStorage(app);
       
         document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
@@ -95,17 +95,17 @@
             return;
           }
       
-          // Upload image to Firebase Storage
+         
           const imageRef = ref(storage, `images/${imageFile.name}`);
           await uploadBytes(imageRef, imageFile);
           const imageURL = await getDownloadURL(imageRef);
       
-          // Upload audio to Firebase Storage
+       
           const audioRef = ref(storage, `audios/${audioFile.name}`);
           await uploadBytes(audioRef, audioFile);
           const audioURL = await getDownloadURL(audioRef);
       
-          // Book the appointment
+          
           addDoc(collection(db, "appointments"), {
             doctorName: doctorName,
             patientID: patientID,

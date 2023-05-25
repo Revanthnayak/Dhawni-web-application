@@ -170,7 +170,7 @@
         function deletePatient(patientID) {
             db.collection("Patients").doc(patientID).delete().then(() => {
                 console.log("Patient deleted successfully!");
-                // Refresh the table after deleting the patient
+               
                 tbody.innerHTML = "";
                 getAllPatients();
             }).catch((error) => {
