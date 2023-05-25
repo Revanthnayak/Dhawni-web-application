@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: blue;
+    background-color: #006DAB;
     color: white;
     padding: 10px;
 }
@@ -24,4 +24,32 @@
     margin-left: 10px;
     color: white;
     text-decoration: none;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.button-container button {
+    margin-right: 5px;
 }

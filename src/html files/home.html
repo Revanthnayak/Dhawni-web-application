@@ -4,46 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css files/home.css">
+    <link rel="stylesheet" href="../css files/home.css">
     <title>Document</title>
-    <style>
-        /* Additional CSS styles for the table */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
-        
-        th {
-            background-color: #f2f2f2;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f8f8f8;
-        }
-        
-        .button-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 10px;
-        }
-        
-        .button-container button {
-            margin-right: 5px;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="topnav">
         <h1>UTSAAH Hospitals</h1>
         <div class="navbar-links">
             <a class="navbar-brand" href="#">Home</a>
-            <a class="navbar-brand" href="registration.html">Logout</a>
+            <a class="navbar-brand" href="login.html">Logout</a>
         </div>
     </div>
 
@@ -155,23 +125,23 @@
                 event.preventDefault(); // Prevent the default link behavior
 
                 // Specify the HTML page for redirection based on the patient ID
-                var htmlPage = ''; // Initialize the variable
+                var htmlPage = '';
 
                 switch (patientID) {
                     case '1':
-                        htmlPage = '1.html';
+                        htmlPage = 'patient/1.html';
                         break;
                     case '2':
-                        htmlPage = '2.html';
+                        htmlPage = 'patient/2.html';
                         break;
                     case '3':
-                        htmlPage = '3.html';
+                        htmlPage = 'patient/3.html';
                         break;
                     case '4':
-                        htmlPage = '4.html';
+                        htmlPage = 'patient/4.html';
                         break;
                     case '5':
-                        htmlPage = '5.html';
+                        htmlPage = 'patient/5.html';
                         break;
                     default:
                         // Handle the case where no specific HTML page is available

@@ -42,6 +42,33 @@
             font-size: 16px;
             color: #555;
         }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #006DAB;
+    color: white;
+    padding: 10px;
+}
+
+.topnav h1 {
+    margin: 0;
+}
+
+.topnav .navbar-links {
+    display: flex;
+}
+
+.topnav .navbar-links a {
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+}
     </style>
 </head>
 
@@ -49,9 +76,9 @@
     <div class="topnav">
         <h1>UTSAAH Hospitals</h1>
         <div class="navbar-links">
-            <a class="navbar-brand" href="home.html">Home</a>
-            <a class="navbar-brand" href="registration.html">Logout</a>
-            <a class="navbar-brand" href="appointment.html">Appointment</a>
+            <a class="navbar-brand" href="../home.html">Home</a>
+            <a class="navbar-brand" href="../login.html">Logout</a>
+            <a class="navbar-brand" href="../appointment.html">Appointment</a>
         </div>
     </div>
     <div class="form-container">
@@ -120,7 +147,7 @@
 
         // Function to retrieve and display patient data
         function displayPatientData() {
-            db.collection("patienthistory").doc("5").get().then((doc) => {
+            db.collection("patienthistory").doc("4").get().then((doc) => {
                 if (doc.exists) {
                     const patient = doc.data();
                     const {
